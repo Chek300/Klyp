@@ -40,6 +40,7 @@ foreach ($searchterms as $term){
 	}
 }
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<style>
