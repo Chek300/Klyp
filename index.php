@@ -19,6 +19,11 @@ foreach ($searchterms as $term){
 	$movies = json_decode(get_html_source($url.$term))->{'movies'};
 	foreach ($movies as $entry){
 		$title = $entry->{'title'};
+		/**
+		 * In case of more than one colour matching in the title make sure we only use the first match
+		 * ("blue red" should still return blue) even if we search red first
+		 */
+
 		foreach($searchterms as $colour){
 			$pos = stripos($title, $colour);
 			if($pos !== false){
